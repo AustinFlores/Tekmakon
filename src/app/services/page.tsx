@@ -1,11 +1,11 @@
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { Button } from "@/components/ui/button"
-import { Cpu, Server, LineChart, Settings, ShieldCheck, Zap } from "lucide-react"
+import { Cpu, Server, LineChart, Settings, ShieldCheck, Zap, Video } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-const imgUrl = '/media/servicesBg.jpg'
+const vidUrl = '/media/services-video.mp4'
 
 const services = [
   {
@@ -49,12 +49,17 @@ export default function ServicesPage() {
       <div className="relative bg-secondary py-20 text-secondary-foreground overflow-hidden">
         {/* Image container with relative positioning */}
         <div className="absolute inset-0">
-          <Image
-            src={imgUrl}
-            alt="Our team building a system"
-            fill
-            className="object-cover transition-transform duration-300 hover:scale-105"
-          />
+
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline // Important for mobile compatibility
+            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          >
+            <source src={vidUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           {/* Optional dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/50" />
         </div>
